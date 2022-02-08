@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 # When a post request is amde for the actors Url
 # Rails envokes the create methd in the actors Ruby controller class
   post "actors" => "actors#create"
+  get "movies" => "movies#index"
 end
