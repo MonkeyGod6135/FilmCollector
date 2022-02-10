@@ -4,7 +4,7 @@ class ActorsController < ApplicationController
 	def index
 		#call all method on actor model class
 		#all method selects all of the data in the actor table
-		#and returns teh data as an array of objects
+		#and returns the data as an array of objects
 		#store the array of objects in the instance variable.
 		# instance variable is avaiable to the actors index.html.erb.
 		@actors = Actor.all

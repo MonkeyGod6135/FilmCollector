@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   get "actors" => "actors#index"
 
   get "actors/new" => "actors#new"
-# When a post request is amde for the actors Url
+# When a post request is made for the actors Url
 # Rails envokes the create methd in the actors Ruby controller class
   post "actors" => "actors#create"
   get "movies" => "movies#index"
+  get "movies/new" => "movies#new"
+  post "movies" => "movies#create"
 end
