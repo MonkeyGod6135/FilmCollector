@@ -4,14 +4,13 @@
 	For any other value of count, the plural form of the string will be returned.
 	count is a ruby method that returns the number of elements
 -->
-<h1>View <%=  pluralize(@movies.count, "Movie") %></h1>
+<h1>View Actor's <%= pluralize(@movies.count, "Movie") %></h1>
 <table>
 	<thead>
 		<th>Title</th>
 		<th>Duration</th>
 		<th>Rating</th>
 		<th>Release Date</th>
-		<th>Actions</th>
 	</thead>
 	<tbody>
 		<!--
@@ -22,14 +21,9 @@
 			<td><%= movie.title %></td>
 			<td><%= movie.duration %></td>
 			<td><%= movie.rating %></td>
-			<td><%= movie.release_date %></td>
-			<td>
-				<a href="/movies/ <%= movie.id %>">Show</a>	|
-				<a href="/movies/ <%= movie.id %>/edit">Edit</a>	|
-				<a href="/movies/ <%= movie.id %>/delete">Delete</a>
-			</td>
+			<td><%= movie.release_date.strftime("%Y-%m-%d") %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
-<a href="/movies/new">Create Movie</a>
+<a href="/actors">View Actors</a>

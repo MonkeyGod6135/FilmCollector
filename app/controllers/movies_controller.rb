@@ -40,11 +40,22 @@ class MoviesController < ApplicationController
 			
 		end
 	end
+	
+	def show
+	# call the find method on movie model class giving it the id sent
+	#in the request
+	#find method selescts all of the data in the movie table where \
+	# the id is equal to the id sent in the request 
+	#selected dada will be returned in the array of actors 
+	#store the array of actors objects in an instance vairable
+	@actors = Movie.find(params[:id]).actors
+end
 	private
 	def movie_params
 		# params is a Rails object that gets the specified request
 		#parameters
 		params.require(:movie).permit(:title, :duration, :rating, :release_date)
 	end
+
 
 end
