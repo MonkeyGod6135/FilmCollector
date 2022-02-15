@@ -39,13 +39,6 @@ class ActorsController < ApplicationController
 			
 		end
 	end
-	private
-	def actor_params
-		# params is a Rails object that gets the specified request
-		#parameters
-		params.require(:actor).permit(:first_name, :last_name)
-	end
-
 # show method gets called when the actors/:id Url is requested
 # show method is mapped to actors show.html.erb
 def show
@@ -57,5 +50,13 @@ def show
 	#store the array of movie objects in an instance vairable
 	@movies = Actor.find(params[:id]).movies
 end
+	
+	private
+	def actor_params
+		# params is a Rails object that gets the specified request
+		#parameters
+		params.require(:actor).permit(:first_name, :last_name)
+	end
+
 
 end
