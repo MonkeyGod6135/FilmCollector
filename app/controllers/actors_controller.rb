@@ -50,6 +50,46 @@ def show
 	#store the array of movie objects in an instance vairable
 	@movies = Actor.find(params[:id]).movies
 end
+
+# edit method gets called when the actors/:id/edit url is requested
+# edit method is mapped to the actors edit.html.erb
+def edit
+	# call find method on actor model class giving it the id sent
+	# in the request
+	# the find method selects all of the data in the actor table where
+	# the id is equal to the id sent in the request
+	# the selected data will be returned as an object
+	# the object will be stored in an instance variable that will be
+	# available to the edit.html.erb
+	@actor = Actor.find(params[:id])
+end
+
+# update method gets called when the update button is pressed
+# actors edit.html.erb
+def update
+	# call find method on actor model class giving it the id sent
+	# in the request
+	# the find method selects all of the data in the actor table where
+	# the id is equal to the id sent in the request
+	# the selected data will be returned as an object
+	# the object will be stored in an instance variable
+	actor = Actor.find(params[:id])
+	if actor.update(actor_params)
+		redirect_to "/actors"
+	else
+		# if the update method fails, get the full messages assciated with the errors
+	# store them in the rails flash object displayed in the requested Url
+		flash[:errors] = actor.errors.full_messages
+		redirect_to "/actors/#{actor.id}/edit"
+end
+
+# delete method gets called when the actors/:id/delete Url is requested
+# delete method is mapped to actors delete.html.erb
+def delete
+		actor = Actor.find(params[:id])
+		actor.destroy
+		redirect_to "/actors"
+end
 	
 	private
 	def actor_params
