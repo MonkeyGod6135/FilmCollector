@@ -36,9 +36,9 @@ class ActorsController < ApplicationController
 			#if the save method succedes, request the actors url
 			#which will rendor the actors new.html.erb in the browser
 			redirect_to "/actors/new"
-			
 		end
 	end
+		
 # show method gets called when the actors/:id Url is requested
 # show method is mapped to actors show.html.erb
 def show
@@ -81,11 +81,25 @@ def update
 	# store them in the rails flash object displayed in the requested Url
 		flash[:errors] = actor.errors.full_messages
 		redirect_to "/actors/#{actor.id}/edit"
+	end
 end
 
-# delete method gets called when the actors/:id/delete Url is requested
-# delete method is mapped to actors delete.html.erb
+# delete method gets called when the actors/:id/delete url is requested
+# delete method is mapped to the actors delete.html.erb
 def delete
+	# call find method on actor model class giving it the id sent
+	# in the request
+	# the find method selects all of the data in the actor table where
+	# the id is equal to the id sent in the request
+	# the selected data will be returned as an object
+	# the object will be stored in an instance variable that will be
+	# available to the edit.html.erb
+	@actor = Actor.find(params[:id])
+end
+
+# destroy method gets called when the actors/:id/delete Url is requested
+# destroy method is mapped to actors delete.html.erb
+def destroy
 		actor = Actor.find(params[:id])
 		actor.destroy
 		redirect_to "/actors"
@@ -94,9 +108,7 @@ end
 	private
 	def actor_params
 		# params is a Rails object that gets the specified request
-		#parameters
+		# parameters
 		params.require(:actor).permit(:first_name, :last_name)
 	end
-
-
 end

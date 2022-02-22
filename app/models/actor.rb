@@ -1,7 +1,7 @@
 class Actor < ApplicationRecord
 	#has_many method sepcifies a one to many relationship
 	# appearences option specfifes that one actor has many appearences
-	has_many :appearances
+	has_many :appearances, dependent: :destroy 
 	# movies option specifies that one actor hsa many moviews 
 	#the through option specifies that one realtionship exists
 	#only through apppearacnes

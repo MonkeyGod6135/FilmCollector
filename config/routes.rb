@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   get "actors/:id" => "actors#show"
   get "movies/:id" => "movies#show"
   get "actors/:id/edit" => "actors#edit"
-  get "actors/:id" => "actors#update"
+  post "actors/:id" => "actors#update"
   get "actors/:id/delete" => "actors#delete"
+  delete "actors/:id" => "actors#destroy"
+  get "movies/:id/edit" => "movies#edit"
+  post "movies/:id" => "movies#update"
+  get "movies/:id/delete" => "movies#delete"
+  delete "movies/:id" => "movies#destroy"
 end

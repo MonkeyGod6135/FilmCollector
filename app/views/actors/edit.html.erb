@@ -2,11 +2,11 @@
 <form action="/actors/<%= @actor.id %>" method="post">
 	<div>
 		<label>First Name:</label>
-		<input type="text" name="actor[first_name]" value="<%= @actor.first_name %>">		
+		<input type="text" name="actor[first_name]" >		
 	</div>
 	<div>
 		<label>Last Name:</label>
-		<input type="text" name="actor[last_name]" value="<%= @actor.first_name %> ">	
+		<input type="text" name="actor[last_name]" value="<%= @actor.last_name %> ">	
 	</div>
 	<input type="submit" value="Update">
 	
@@ -15,4 +15,3 @@
 	<% flash[:errors].each do |e| %>
 	<div><%= e %></div>
 	<% end %>
-<% end %>
