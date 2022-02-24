@@ -21,7 +21,7 @@ class ActorsController < ApplicationController
 		#call constructor of Actor Model class giving it the 
 		#first name and last name parameters input in the actors
 		#new.html.erb
-		#constructo creates Actor model object which is stored in avriable
+		#constructor creates Actor model object which is stored in avriable
 		actor = Actor.new(actor_params)
 		#call save method on Actor object
 		if actor.save
