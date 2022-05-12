@@ -1,0 +1,16 @@
+<h1>View <%=  pluralize(@ratings.count, "Movie") %></h1>
+<table class="table table-striped">
+	<thead>
+		<th scope="col">Movie</th>
+		<th scope="col">Rating</th>
+	</thead>
+	<tbody>
+		<% @ratings.each do |rating| %>
+		<tr>
+			<td><%= movie.title %></td>
+			<td><%= rating.rating %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<a href="/ratings/new" class="btn btn-primary">Create Movie Rating</a>

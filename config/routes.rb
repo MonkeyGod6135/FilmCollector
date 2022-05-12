@@ -26,4 +26,7 @@ Rails.application.routes.draw do
   delete "movies/:id" => "movies#destroy"
   get "appearances" => "appearances#index"
   post "appearances" => "appearances#create"
+  get "ratings" => "ratings#index"
+  get "ratings/new" => "ratings#new"
+  post "ratings" => "ratings#create"
 end

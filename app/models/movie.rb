@@ -1,8 +1,10 @@
 class Movie < ApplicationRecord
+
+	has_many :ratings
 	#has_many method sepcifies a one to many relationship
 	# appearences option specfifes that one movie has many appearences
 	has_many :appearances, dependent: :destroy 
-	# movies option specifies that one movie hsa many actors 
+	# movies option specifies that one movie to many actors 
 	#the through option specifies that one realtionship exists
 	#only through apppearances
 	has_many :actors, through: :appearances
